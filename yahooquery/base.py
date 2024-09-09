@@ -1103,7 +1103,9 @@ class _YahooFinance(object):
             return data
         except ValueError:
             return {"error": "HTTP 404 Not Found.  Please try again"}
-
+        except MaxRetryError::
+            return {"error": "HTTP 404 Not Found.  Please try again"}
+            
     def _construct_params(self, config, params):
         required_params = [
             k
